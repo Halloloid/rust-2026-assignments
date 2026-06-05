@@ -1,6 +1,30 @@
 pub fn reverse_words(sentence: &str) -> String {
-    let _ = sentence;
-    todo!("implement reverse_words")
+    let s = sentence;
+    let s = s.trim();
+    let s = format!("{s} ");
+    let mut res = String::new();
+    let mut char_vec: Vec<String> = Vec::new();
+
+    for i in s.chars(){
+        if !i.is_whitespace() {
+            res.push(i);
+        }else {
+            char_vec.push(res);
+            res = String::new();
+        }
+    }
+    res = String::new();
+    let mut i = char_vec.len()-1;
+    while i!=0 {
+        if char_vec[i] != ""{
+            res.push_str(&char_vec[i]);
+            res.push(' ');
+        }
+        i-=1;
+    }
+    res.push_str(&char_vec[0]);
+
+    res
 }
 
 #[cfg(test)]
