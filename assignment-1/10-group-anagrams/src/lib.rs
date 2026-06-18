@@ -1,6 +1,21 @@
+use std::collections::HashMap;
+
 pub fn group_anagrams(words: &[String]) -> Vec<Vec<String>> {
-    let _ = words;
-    todo!("implement group_anagrams")
+    let mut map: HashMap<String, Vec<String>> = HashMap::new();
+    for i in words {
+        let mut sorted:Vec<char> = i.to_lowercase().chars().collect();
+        sorted.sort();
+        
+        let mut key = String::new();
+        sorted.into_iter().for_each(|i| key.push(i));
+        
+        map.entry(key).and_modify(|k| k.push(i.to_string())).or_insert(vec![i.to_string()]);
+    }
+    let mut ret:Vec<Vec<String>> = Vec::new();
+
+    map.into_iter().for_each(|i| ret.push(i.1));
+    
+    ret
 }
 
 #[cfg(test)]
@@ -23,11 +38,7 @@ mod tests {
     #[test]
     fn classic_example() {
         let input = s(&["Eat", "tea", "tan", "ate", "Nat", "bat"]);
-        let expected = vec![
-            s(&["Eat", "tea", "ate"]),
-            s(&["bat"]),
-            s(&["tan", "Nat"]),
-        ];
+        let expected = vec![s(&["Eat", "tea", "ate"]), s(&["bat"]), s(&["tan", "Nat"])];
         assert_eq!(sort_groups(group_anagrams(&input)), expected);
     }
 
