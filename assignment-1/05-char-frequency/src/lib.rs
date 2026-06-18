@@ -1,6 +1,23 @@
+use std::collections::HashMap;
+
 pub fn char_frequency(input: &str) -> Vec<(char, u32)> {
     let _ = input;
-    todo!("implement char_frequency")
+
+    let mut map:HashMap<char,u32> = HashMap::new();
+    let mut ret:Vec<(char,u32)> = Vec::new();
+
+    if input.is_empty(){
+        return ret;
+    }
+    
+    for i in input.chars(){
+        map.entry(i).and_modify(|i| *i+=1).or_insert(1);
+    }
+    
+    map.into_iter().for_each(|t| ret.push(t));
+    ret.sort_by(|v1,v2| v2.1.cmp(&v1.1).then(v1.0.cmp(&v2.0)));
+
+    ret
 }
 
 #[cfg(test)]
