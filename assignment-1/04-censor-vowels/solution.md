@@ -2,11 +2,12 @@
 
 ## Approach
 
-_Describe your approach here._
+_used the hint and used  unsafe { s.as_bytes_mut()  for muataing the string in bytes_
 
 ## Edge cases handled
+_There was no edge case to handel_
 
 
 ## Anything special
 
-_Tricks, alternatives you considered, performance notes, etc._
+_i had used the hint  unsafe { s.as_bytes_mut()_
