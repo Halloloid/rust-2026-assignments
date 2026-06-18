@@ -14,6 +14,7 @@ pub fn group_anagrams(words: &[String]) -> Vec<Vec<String>> {
     let mut ret:Vec<Vec<String>> = Vec::new();
 
     map.into_iter().for_each(|i| ret.push(i.1));
+
     
     ret
 }
