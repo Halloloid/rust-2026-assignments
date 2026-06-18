@@ -2,7 +2,25 @@ pub const ALPHABET: &str = "abcdefghijklmnopqrstuvwxyz";
 
 pub fn caesar(input: &str, shift: i32) -> String {
     let _ = (input, shift);
-    todo!("implement caesar")
+    let mut ret = String::new();
+    for i in input.chars() {
+        if ALPHABET.to_uppercase().contains(i){
+            let asci = i as i32;
+            let mut shifted = asci+shift;
+            while shifted > 90 { shifted-=26; }
+            while shifted < 65 { shifted+=26; }
+            ret.push(shifted as u8 as char);
+        }else if ALPHABET.contains(i) {
+            let asci = i as i32;
+            let mut shifted = asci+shift;
+            while shifted > 122 { shifted-=26; }
+            while shifted < 97 { shifted+=26; }
+            ret.push(shifted as u8 as char);
+        }else {
+            ret.push(i);
+        }
+    }
+    ret
 }
 
 #[cfg(test)]

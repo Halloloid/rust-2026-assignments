@@ -2,11 +2,11 @@
 
 ## Approach
 
-_Describe your approach here._
+_first i take the char and check if its in ALPHABET then if its shift +ascii is greater than wrap subtract 26 until its in the range if its below the range then add 26 until its in the wrap_
 
 ## Edge cases handled
-
+_the large shifts_
 
 ## Anything special
 
-_Tricks, alternatives you considered, performance notes, etc._
+_looping untils its in the range_
