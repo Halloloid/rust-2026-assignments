@@ -1,6 +1,11 @@
 pub fn split_and_double(xs: &mut Vec<i32>, mid: usize) -> (&mut [i32], &mut [i32]) {
-    let _ = (xs, mid);
-    todo!("implement split_and_double")
+    if mid > xs.len(){
+        panic!("The middle index is greater than the size of the Vector")
+    }
+
+    xs.iter_mut().for_each(|x| *x= *x*2);
+
+    xs.split_at_mut(mid)
 }
 
 #[cfg(test)]

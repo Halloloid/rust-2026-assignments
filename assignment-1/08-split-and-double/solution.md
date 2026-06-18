@@ -2,11 +2,11 @@
 
 ## Approach
 
-_Describe your approach here._
+_first doubled the element in place then used the hint to return_
 
 ## Edge cases handled
-
+_panic if mid in greater than len_
 
 ## Anything special
 
-_Tricks, alternatives you considered, performance notes, etc._
+_used the hint_
